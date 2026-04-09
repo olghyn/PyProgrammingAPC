@@ -33,6 +33,7 @@ cc = np.empty( NN )
 # Start operations:
 
 # Loop on the domain
+# cc = map(func, zip(aa,bb))
 for ii in range( NN ) :
     cc[ ii ] = func( aa[ ii ], bb[ ii ] )
 

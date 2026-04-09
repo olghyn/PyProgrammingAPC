@@ -9,12 +9,12 @@ import sys
 
 ########## <-------------------------------------- Specific/
 import multiprocessing as mp
-########## <-------------------------------------- /Specific
 
 # Load argument variables here?
 if len(sys.argv) != 2 :
     raise RuntimeError( 'I want the number of processes' )
 Nproc = int(sys.argv[1])
+########## <-------------------------------------- /Specific
 
 # define internal functions
 def func ( v1, v2 ) :
@@ -48,12 +48,11 @@ def func_mp ( arg ) :
 
 t1 = time.time()
 # context manager for pool of processes
-# with mp.Pool(os.cpu_count()) as p :
+# p = mp.Pool(Nproc)
+# cc = p.map( func_mp, zip(aa, bb) )
+# p.close()
 with mp.Pool(Nproc) as p :
     cc = p.map( func_mp, zip(aa, bb) )
-#p = mp.Pool(Nproc)
-#cc = p.map(func_mp, zip(aa,bb) )
-#p.close()
 
 t2 = time.time()
 print( t2-t1 )
